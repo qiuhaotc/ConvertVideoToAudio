@@ -19,6 +19,8 @@ jobs:
         dotnet-version: 3.1.101
     - name: Change Folder
       run: cd src
+    - name: Ls
+      run: ls
     - name: Install dependencies
       run: dotnet restore
     - name: Build
