@@ -2,7 +2,7 @@
 
 Use ffmpeg and Xabe.FFmpeg to extract audios from videos.
 
-Like convert video like mp4, avi to mp3, aac.
+Such as convert video like mp4 or mkv to mp3 or aac.
 
 ## Usage
 
