@@ -1,6 +1,8 @@
 # ConvertVideoToAudio
 
-Use ffmpeg and Xabe.FFmpeg to extract audios from videos
+Use ffmpeg and Xabe.FFmpeg to extract audios from videos.
+
+Like convert video like mp4, avi to mp3, aac.
 
 ## Usage
 
