@@ -6,6 +6,13 @@ Such as convert video like mp4 or mkv to mp3 or aac.
 
 ## Usage
 
+### Quick start for win64
+
+1. Download the last release <https://github.com/qiuhaotc/ConvertVideoToAudio/releases/latest> of Release-X-with-win64-ffmpeg.zip
+2. Drag the video files you want to convert to the "ConvertVideoToAudio.exe"
+
+### Advanced use
+
 1. Download ffmpeg from <https://ffmpeg.org/>, extract the bin files to your local PC
 
 2. Change App.config section "FFmpegExecutablePath" value to your ffmpeg folder that contains the "ffmpeg.exe" and "ffprobe.exe", like "C:\ffmpeg\bin"
