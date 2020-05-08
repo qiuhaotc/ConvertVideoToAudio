@@ -21,10 +21,12 @@ namespace ConvertVideoToAudio
             }
 
             var filesToConvert = new List<FileInfo>(GetFilesToConvert(fileNames ?? Array.Empty<string>()));
-            await Console.Out.WriteLineAsync($"Find {filesToConvert.Count} files to convert.");
+            await Console.Out.WriteLineAsync($"Find {filesToConvert.Count} files to convert");
 
+            Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             //Set FFmpeg directory
             FFmpeg.SetExecutablesPath(ffmpegLocation);
+            await Console.Out.WriteLineAsync($"Set ffmpeg executable path to: {ffmpegLocation}");
 
             //Run conversion
             await RunConversion(filesToConvert, token);
