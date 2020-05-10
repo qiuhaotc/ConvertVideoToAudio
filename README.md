@@ -11,6 +11,8 @@ Such as convert video like mp4 or mkv to mp3 or aac.
 1. Download the last release <https://github.com/qiuhaotc/ConvertVideoToAudio/releases/latest> of Release-X-with-win64-ffmpeg.zip
 2. Drag the video files you want to convert to the "ConvertVideoToAudio.exe"
 
+![Convert To Audio](https://raw.githubusercontent.com/qiuhaotc/ConvertVideoToAudio/master/doc/ConvertToAudio.gif)
+
 ### Advanced use
 
 1. Download ffmpeg from <https://ffmpeg.org/>, extract the bin files to your local PC
