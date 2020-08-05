@@ -26,3 +26,13 @@ Such as convert video like mp4 or mkv to mp3 or aac.
 5. Drag the video files you want to convert to the "ConvertVideoToAudio.exe"
 
 6. Wait converting finshed
+
+## Misc
+
+|Status|Value|
+|:----|:---:|
+|Stars|[![Stars](https://img.shields.io/github/stars/qiuhaotc/ConvertVideoToAudio)](https://github.com/qiuhaotc/ConvertVideoToAudio)
+|Forks|[![Forks](https://img.shields.io/github/forks/qiuhaotc/ConvertVideoToAudio)](https://github.com/qiuhaotc/ConvertVideoToAudio)
+|License|[![License](https://img.shields.io/github/license/qiuhaotc/ConvertVideoToAudio)](https://github.com/qiuhaotc/ConvertVideoToAudio)
+|Issues|[![Issues](https://img.shields.io/github/issues/qiuhaotc/ConvertVideoToAudio)](https://github.com/qiuhaotc/ConvertVideoToAudio)
+|Release Downloads|[![Downloads](https://img.shields.io/github/downloads/qiuhaotc/ConvertVideoToAudio/total.svg)](https://github.com/qiuhaotc/ConvertVideoToAudio/releases)
