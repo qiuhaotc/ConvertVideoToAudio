@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using ConvertCommon;
 using Xabe.FFmpeg;
 
 namespace ConvertVideoToAudio
@@ -13,35 +12,24 @@ namespace ConvertVideoToAudio
     {
         public static async Task Run(string[] fileNames, CancellationToken token)
         {
-            var ffmpegLocation = ConfigurationManager.AppSettings["FFmpegExecutablePath"];
-
-            if (string.IsNullOrEmpty(ffmpegLocation))
-            {
-                throw new Exception("Please set the ffmpeg executable path in the configuration!!!");
-            }
-
-            var filesToConvert = new List<FileInfo>(GetFilesToConvert(fileNames ?? Array.Empty<string>()));
+            var config = Utils.GetConvertConfiguration();
+            var filesToConvert = Utils.GetFilesToConvert(fileNames);
             await Console.Out.WriteLineAsync($"Find {filesToConvert.Count} files to convert");
 
             Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             //Set FFmpeg directory
-            FFmpeg.SetExecutablesPath(ffmpegLocation);
-            await Console.Out.WriteLineAsync($"Set ffmpeg executable path to: {ffmpegLocation}");
+            FFmpeg.SetExecutablesPath(config.FFmpegExecutablePath);
+            await Console.Out.WriteLineAsync($"Set ffmpeg executable path to: {config.FFmpegExecutablePath}");
 
             //Run conversion
-            await RunConversion(filesToConvert, token);
+            await RunConversion(filesToConvert, token, config);
         }
 
-        static IEnumerable<FileInfo> GetFilesToConvert(string[] fileNames)
+        static async Task RunConversion(IEnumerable<FileInfo> filesToConvert, CancellationToken token, ConvertConfiguration config)
         {
-            return fileNames.Select(u => new FileInfo(u)).Where(file => file.Exists);
-        }
-
-        static async Task RunConversion(IEnumerable<FileInfo> filesToConvert, CancellationToken token)
-        {
-            var audioType = ConfigurationManager.AppSettings["AudioType"];
-            var overrideExistFile = bool.Parse(ConfigurationManager.AppSettings["OverrideExistFile"]);
-            var threadsCount = int.Parse(ConfigurationManager.AppSettings["ThreadsCount"]);
+            var audioType = config.AudioType;
+            var overrideExistFile = config.OverrideExistFile;
+            var threadsCount = config.ThreadsCount;
 
             if (threadsCount <= 0)
             {
