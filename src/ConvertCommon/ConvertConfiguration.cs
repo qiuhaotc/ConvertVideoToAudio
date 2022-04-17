@@ -7,5 +7,6 @@
         public int ThreadsCount { get; set; }
         public string FFmpegExecutablePath { get; set; } = string.Empty;
         public string PrefixForConcatenate { get; set; } = string.Empty;
+        public string SuffixForConcatenate { get; set; } = string.Empty;
     }
 }

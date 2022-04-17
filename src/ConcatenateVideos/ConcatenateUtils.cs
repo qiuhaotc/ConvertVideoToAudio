@@ -38,7 +38,7 @@ namespace ConcatVideos
 
             await Console.Out.WriteLineAsync($"Threads Count: {threadsCount}");
 
-            var output = AppendPrefixToFilename(filesToConvert[0], config.PrefixForConcatenate);
+            var output = AppendPrefixAndSuffixToFilename(filesToConvert[0], config.PrefixForConcatenate, config.SuffixForConcatenate);
             var conversion = await FFmpeg.Conversions.FromSnippet.Concatenate(output, filesToConvert.Select(u => u.FullName).ToArray());
             conversion.SetOverwriteOutput(overrideExistFile);
             conversion.UseMultiThread(threadsCount);
@@ -52,9 +52,11 @@ namespace ConcatVideos
             await Console.Out.WriteLineAsync($"Finished concatenate files [{string.Join(",", filesToConvert.Select(u => u.Name))}], output path [{conversion.OutputFilePath}]");
         }
 
-        static string AppendPrefixToFilename(FileInfo fileInfo, string prefix)
+        static string AppendPrefixAndSuffixToFilename(FileInfo fileInfo, string prefix, string suffix)
         {
-            return Path.Combine(fileInfo.DirectoryName ?? throw new ArgumentException($"Null Directory for file {fileInfo.FullName}"), prefix + fileInfo.Name);
+            return Path.Combine(
+                fileInfo.DirectoryName ?? throw new ArgumentException($"Null Directory for file {fileInfo.FullName}"),
+                prefix + Path.GetFileNameWithoutExtension(fileInfo.FullName) + suffix + fileInfo.Extension);
         }
     }
 }
