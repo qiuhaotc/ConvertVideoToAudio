@@ -17,10 +17,10 @@ namespace ConcatVideos
             await Console.Out.WriteLineAsync($"Set ffmpeg executable path to: {config.FFmpegExecutablePath}");
 
             //Run conversion
-            await RunConcatenate(filesToConvert, token, config);
+            await Concatenate(filesToConvert, token, config);
         }
 
-        static async Task RunConcatenate(List<FileInfo> filesToConvert, CancellationToken token, ConvertConfiguration config)
+        static async Task Concatenate(List<FileInfo> filesToConvert, CancellationToken token, ConvertConfiguration config)
         {
             if (filesToConvert.Count <= 1)
             {
