@@ -9,6 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConcatenateVideos", "Concat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConvertCommon", "ConvertCommon\ConvertCommon.csproj", "{ED022938-780E-4795-A4F6-C259A22533AC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{A5827BE3-F46E-4C9C-A61D-FFAA92416E63}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\dotnet.yml = ..\.github\workflows\dotnet.yml
+		..\.github\workflows\greetings.yml = ..\.github\workflows\greetings.yml
+		..\.github\workflows\label.yml = ..\.github\workflows\label.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
